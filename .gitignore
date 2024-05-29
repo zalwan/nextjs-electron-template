@@ -9,6 +9,9 @@
 # testing
 /coverage
 
+# electron.js
+/dist/
+
 # next.js
 /.next/
 /out/

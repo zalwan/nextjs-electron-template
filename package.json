@@ -1,22 +1,30 @@
 {
   "name": "static-electron",
   "version": "0.1.0",
+  "author": "rizalsuryawan86@gmail.com",
+  "description": "Nextjs electron starterkit",
   "private": true,
+  "main": "main/main.mjs",
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "concurrently -n \"NEXT,ELECTRON\" -c \"yellow,blue\" --kill-others \"next dev\" \"electron .\"",
+    "build": "next build && electron-builder",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "electron-serve": "^2.0.0",
+    "next": "14.2.3",
     "react": "^18",
-    "react-dom": "^18",
-    "next": "14.2.3"
+    "react-dom": "^18"
   },
   "devDependencies": {
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
+    "concurrently": "^8.2.2",
+    "electron": "^30.0.8",
+    "electron-builder": "^24.13.3",
     "eslint": "^8",
-    "eslint-config-next": "14.2.3"
+    "eslint-config-next": "14.2.3",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1"
   }
 }
