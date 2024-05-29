@@ -1,6 +1,4 @@
-import { contextBridge, ipcRenderer } from "electron";
-
-console.log("Preload script loaded");
+const { contextBridge, ipcRenderer } = require("electron");
 
 contextBridge.exposeInMainWorld("electronAPI", {
   on: (channel, callback) => {
@@ -10,3 +8,5 @@ contextBridge.exposeInMainWorld("electronAPI", {
     ipcRenderer.send(channel, args);
   },
 });
+
+console.log("Preload script loaded");

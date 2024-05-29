@@ -15,11 +15,14 @@ const appServe = app.isPackaged
   : null;
 
 const createWindows = () => {
+  const preloadPath = path.join(__dirname, "preload.js");
+  console.log("Preload script path:", preloadPath); // Tambahkan log ini
+
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, "preload.js"),
+      preload: preloadPath,
       // inspect element disable on production
       devTools: !app.isPackaged,
     },
